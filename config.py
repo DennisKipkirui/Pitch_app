@@ -3,9 +3,9 @@ class Config:
     '''
     General configuration parent class
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:qwerty@localhost/kimutai'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitch2'
     
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SECRET_KEY = 'Qwerty'
 class ProdConfig(Config):
     '''
     Production  configuration child class
