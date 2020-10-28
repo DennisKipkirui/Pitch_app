@@ -1,24 +1,18 @@
+ 
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,SubmitField,SelectField
-from wtforms.validators import Required
+from wtforms import StringField, TextAreaField,SubmitField
+from ..models import Pitch, Comment
+from wtforms.validators import DataRequired
 
 class PitchForm(FlaskForm):
-    """
-    Class to create a wtf form for creating a pitch
-    """
-    content = TextAreaField('INPUT YOUR PITCH')
+    title = StringField('Pitch Category Title', validators=[DataRequired()])
+    pitch = TextAreaField('YOUR PITCH',validators=[DataRequired()])
     submit = SubmitField('SUBMIT')
 
 class CommentForm(FlaskForm):
-    """
-    Class to create a wtf form for creating a pitch
-    """
-    opinion = TextAreaField('WRITE A COMMENT')
-    submit = SubmitField('SUBMIT')
+    comment = TextAreaField('Write a comment here',validators=[DataRequired()])
+    submit = SubmitField('Submit')
 
 class CategoryForm(FlaskForm):
-    """
-    class to create a wtf form for creating a pitch
-    """
-    name = StringField('category Name', validators=[Required()])
+    name =  StringField('Category Name', validators=[DataRequired()])
     submit = SubmitField('Create')
